@@ -8,6 +8,10 @@ import {
   CREW_FAILED_LOADING,
 
   CREW_SET_STATUS,
+
+  SET_FILTER_NAME,
+  SET_FILTER_CITY,
+  RESET_FILTERS,
 } from '../actions/AcitonTypes';
 
 import { STAGES, STAGE } from '../common/Constants';
@@ -15,6 +19,9 @@ import { STAGES, STAGE } from '../common/Constants';
 const DEFAULT_STATE: State = {
   stages: STAGES,
   crew: [],
+  filterName: '',
+  filterCity: '',
+
   isLoading: false,
   error: null,
 };
@@ -52,6 +59,22 @@ const handlers = {
         status,
       };
     }),
+  }),
+
+  [SET_FILTER_NAME]: (state, payload) => ({
+    ...state,
+    filterName: payload,
+  }),
+
+  [SET_FILTER_CITY]: (state, payload) => ({
+    ...state,
+    filterCity: payload,
+  }),
+
+  [RESET_FILTERS]: state => ({
+    ...state,
+    filterName: '',
+    filterCity: '',
   }),
 };
 

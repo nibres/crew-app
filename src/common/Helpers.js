@@ -23,3 +23,13 @@ export function getPreviousStageForStage(stage: Stage, stages: Array<Stage>): ?S
   if (loc === -1) { return null; }
   return stages[loc - 1] || null;
 }
+
+export function filterCrew(crew: Person[] = [], filterOptions: FilterOptions): Person[] {
+  const name = (filterOptions.name || '').toLowerCase();
+  const city = (filterOptions.city || '').toLowerCase();
+  return crew.filter(({
+    name: { first: firstName, last: lastName },
+    location: { city: cityName },
+  }) => cityName.includes(city)
+      && `${firstName} ${lastName}`.includes(name));
+}

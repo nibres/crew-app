@@ -39,6 +39,11 @@ declare interface Action<P> {
 
 declare type VoidAction = Action<void>
 
+declare type FilterOptions = {
+  name?: ?string,
+  city?: ?string
+}
+
 declare type Stage = string
 declare type StageItem = {
   id: Stage,
@@ -54,6 +59,8 @@ declare type StageList = Array<StageItem>
 declare type State = {
   stages: StageList,
   crew: Person[],
+  filterName: string,
+  filterCity: string,
   isLoading: boolean,
   error: ?Error,
 }
@@ -76,9 +83,13 @@ declare type SetCrewStatusAction = Action<{
   person: Person,
   status: Stage
 }>
+declare type ResetFiltersAction = VoidAction
+declare type FilterAction = Action<string>
 
 declare type Actions = CrewLoadingActions
   | SetCrewStatusAction
+  | ResetFiltersAction
+  | FilterAction
 
 // Props
 type EmptyProps = {||}

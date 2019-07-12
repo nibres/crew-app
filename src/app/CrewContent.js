@@ -8,7 +8,7 @@ import { AppContent } from '../common/Styled';
 import { fetchCrew as fetchCrewAction } from '../actions';
 
 type OwnProps = {|
-  children: React.Node
+  children: React.Node[]
 |}
 
 type Props = {

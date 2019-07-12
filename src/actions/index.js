@@ -7,6 +7,10 @@ import {
   CREW_FAILED_LOADING,
 
   CREW_SET_STATUS,
+
+  SET_FILTER_NAME,
+  SET_FILTER_CITY,
+  RESET_FILTERS,
 } from './AcitonTypes';
 
 import { fetchCrew as fetchCrewRequest } from '../common/Http';
@@ -49,5 +53,23 @@ export function setCrewStatus(person: Person, status: Stage): SetCrewStatusActio
       person,
       status,
     },
+  });
+}
+
+export function resetFilters(): ResetFiltersAction {
+  return ({ type: RESET_FILTERS });
+}
+
+export function filterCrewByName(name: string): FilterAction {
+  return ({
+    type: SET_FILTER_NAME,
+    payload: name,
+  });
+}
+
+export function filterCrewByCity(city: string): FilterAction {
+  return ({
+    type: SET_FILTER_CITY,
+    payload: city,
   });
 }
