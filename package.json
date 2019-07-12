@@ -5,6 +5,7 @@
   "description": "crew applications app",
   "scripts": {
     "start": "webpack-dev-server --mode development",
+    "flow": "flow",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint ./src"
   },
@@ -18,13 +19,18 @@
     "@babel/preset-react": "^7.0.0",
     "babel-eslint": "^10.0.2",
     "babel-loader": "^8.0.6",
+    "babel-plugin-react-flow-props-to-prop-types": "^0.15.0",
     "babel-plugin-styled-components": "^1.10.6",
     "babel-polyfill": "^6.26.0",
     "eslint": "^6.0.1",
     "eslint-config-airbnb": "^17.1.1",
+    "eslint-plugin-flowtype": "^3.11.1",
     "eslint-plugin-import": "^2.18.0",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.14.2",
+    "flow-bin": "^0.102.0",
+    "flow-typed": "^2.5.2",
+    "flowtype": "^2.0.0",
     "webpack": "^4.35.3",
     "webpack-cli": "^3.3.5",
     "webpack-dev-server": "^3.7.2"
