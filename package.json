@@ -5,6 +5,7 @@
   "description": "crew applications app",
   "scripts": {
     "start": "webpack-dev-server --mode development",
+    "build": "webpack --mode=production",
     "flow": "flow",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint ./src"
@@ -31,6 +32,8 @@
     "flow-bin": "^0.102.0",
     "flow-typed": "^2.5.2",
     "flowtype": "^2.0.0",
+    "html-webpack-plugin": "^4.0.0-beta.7",
+    "react-dev-utils": "^9.0.1",
     "webpack": "^4.35.3",
     "webpack-cli": "^3.3.5",
     "webpack-dev-server": "^3.7.2"
