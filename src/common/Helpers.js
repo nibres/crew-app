@@ -27,9 +27,10 @@ export function getPreviousStageForStage(stage: Stage, stages: Array<Stage>): ?S
 export function filterCrew(crew: Person[] = [], filterOptions: FilterOptions): Person[] {
   const name = (filterOptions.name || '').toLowerCase();
   const city = (filterOptions.city || '').toLowerCase();
+
   return crew.filter(({
     name: { first: firstName, last: lastName },
     location: { city: cityName },
-  }) => cityName.includes(city)
-      && `${firstName} ${lastName}`.includes(name));
+  }) => cityName.toLowerCase().includes(city)
+      && `${firstName.toLowerCase()} ${lastName.toLowerCase()}`.includes(name));
 }
