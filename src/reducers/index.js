@@ -14,13 +14,14 @@ import {
   RESET_FILTERS,
 } from '../actions/AcitonTypes';
 
+import Storage from '../common/Storage';
 import { STAGES, STAGE } from '../common/Constants';
 
 const DEFAULT_STATE: State = {
   stages: STAGES,
   crew: [],
-  filterName: '',
-  filterCity: '',
+  filterName: Storage.filterName || '',
+  filterCity: Storage.filterCity || '',
 
   isLoading: false,
   error: null,
@@ -61,15 +62,21 @@ const handlers = {
     }),
   }),
 
-  [SET_FILTER_NAME]: (state, payload) => ({
-    ...state,
-    filterName: payload,
-  }),
+  [SET_FILTER_NAME]: (state, payload) => {
+    Storage.filterName = payload;
+    return ({
+      ...state,
+      filterName: payload,
+    });
+  },
 
-  [SET_FILTER_CITY]: (state, payload) => ({
-    ...state,
-    filterCity: payload,
-  }),
+  [SET_FILTER_CITY]: (state, payload) => {
+    Storage.filterCity = payload;
+    return ({
+      ...state,
+      filterCity: payload,
+    });
+  },
 
   [RESET_FILTERS]: state => ({
     ...state,

@@ -35,6 +35,7 @@
   ],
   "globals": {
     "console": "readonly",
+    "localStorage": "readonly",
     "document": "readonly",
     "fetch": "readonly",
     "alert": "readonly"
