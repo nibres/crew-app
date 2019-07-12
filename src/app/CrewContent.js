@@ -4,6 +4,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 
 import { AppContent } from '../common/Styled';
+import Loading from '../components/Loading';
 
 import { fetchCrew as fetchCrewAction } from '../actions';
 
@@ -15,6 +16,7 @@ type Props = {
   ...OwnProps,
   crew: ?Person[],
   fetchCrew: () => void,
+  isLoading: ?boolean,
   error: ?Error,
 }
 
@@ -38,9 +40,10 @@ class CrewContent extends React.Component<Props> {
   }
 
   render() {
-    const { children } = this.props;
+    const { children, isLoading } = this.props;
     return (
       <AppContent>
+        { isLoading && (<Loading />) }
         { children }
       </AppContent>
     );
@@ -48,10 +51,12 @@ class CrewContent extends React.Component<Props> {
 }
 
 const mapStateToProps = ({
+  isLoading,
   error,
   crew,
 }) => ({
   crew,
+  isLoading,
   error,
 });
 
