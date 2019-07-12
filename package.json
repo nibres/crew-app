@@ -1,0 +1,12 @@
+{
+  "name": "crewapp",
+  "version": "0.0.1",
+  "private": true,
+  "description": "crew applications app",
+  "scripts": {
+  },
+  "devDependencies": {
+  },
+  "dependencies": {
+  }
+}
